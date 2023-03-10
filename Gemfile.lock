@@ -199,7 +199,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -228,7 +227,6 @@ DEPENDENCIES
   rspec
   rubocop
   spring
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
