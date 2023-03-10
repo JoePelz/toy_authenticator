@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module Admin
-  class UsersController < ApplicationController
+  class UsersController < ::Admin::BaseController
     def find
-      binding.pry
       response_data = {
           controller: request.controller_class.name,
           action: request.params['action']

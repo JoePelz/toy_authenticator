@@ -1,8 +1,8 @@
-class UsersController < ApplicationController
+class TokensController < ApplicationController
   def authenticate
     response_data = {
-        controller: request.controller_class.name,
-        action: request.params['action']
+        access_token: "secret access token",
+        access_token_expires_at: 30.minutes.from_now
     }
     render json: response_data, status: 200
   end

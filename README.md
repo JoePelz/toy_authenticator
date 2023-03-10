@@ -44,6 +44,14 @@
     $ rubocop
     ```
 
+NOTES:
+* Decided that only known internal users can 
+* Added constraint to routes so that 
+* We should be using the `devise` for authentication. DIY security is a bad idea.
+* Or we should be using OAuth via `doorkeeper` gem
+* `pundit` is a good gem for setting policies about who can do which action.
+*  
+
 TODO:
 
 * secure redis with credentials
