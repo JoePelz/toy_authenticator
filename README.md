@@ -44,3 +44,11 @@
     $ rubocop
     ```
 
+TODO:
+
+* secure redis with credentials
+* accept and content-type negotiation?
+* Adopt a standard like jsonapi?  This might be tricky with Redis as a backend.
+
+
+.

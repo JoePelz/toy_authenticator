@@ -1,13 +1,8 @@
 class UsersController < ApplicationController
-  def index
-    client = ::RedisInstance.instance
-    old_value = client.get("test")
-    new_value = Time.current.as_json
-    client.set('test', new_value, ex: 10)
+  def authenticate
     response_data = {
-        status: 'success',
-        old_value: old_value,
-        new_value: new_value
+        controller: request.controller_class.name,
+        action: request.params['action']
     }
     render json: response_data, status: 200
   end
