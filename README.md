@@ -58,5 +58,9 @@ NOTES:
 * We should consider adopting a standard like JSONAPI and the fast_jsonapi gem. This might be tricky with Redis as a backend.
 * We should install `Rack::Attack` to throttle brute-force authentication attempts
 * I chose to require password_confirmation on creating a user because it was easy and fun
+* I looked around for gems for checking password complexity. We could do that with regex checks, and I still might, but I also decided to install strong_password to do some fancier checks.
+  * v0.0.7 of the strong_password gem was hijacked by a malicious user, but control has been restored to the original author. See https://news.ycombinator.com/item?id=20377136
+  * If there's a business need for password complexity to include "special characters", we can add that with a set of regex validations.
+ 
 
 .

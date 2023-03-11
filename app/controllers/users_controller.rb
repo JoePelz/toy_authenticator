@@ -1,9 +1,19 @@
-class TokensController < ApplicationController
+# frozen_string_literal: true
+
+class UsersController < ApplicationController
   def authenticate
-    response_data = {
-        access_token: "secret access token",
-        access_token_expires_at: 30.minutes.from_now
-    }
-    render json: response_data, status: 200
+    user = User.find_by(username: authenticate_params[:username])
+    unless user&.authenticate(authenticate_params[:password])
+      raise Errors::Unauthorized.new(detail: "Credentials are not valid")
+    end
+
+    render status: 200, json: user, except: :password_digest
   end
+
+  private
+
+  def authenticate_params
+    @authenticate_params ||= params.require(:user).permit(:username, :password)
+  end
+
 end

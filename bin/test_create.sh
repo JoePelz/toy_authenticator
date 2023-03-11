@@ -6,6 +6,6 @@ curl -X POST localhost:3000/admin/users \
   -H "X-API-Key: valid-key" \
   -d '{
   "username": "user1",
-  "password": "password1",
-  "password_confirmation": "password1"
+  "password": "h2f8057hro",
+  "password_confirmation": "h2f8057hro"
 }'

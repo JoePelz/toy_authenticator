@@ -44,3 +44,5 @@ gem "oj", "~> 3.14"
 gem "redis", "~> 5.0"
 
 gem "bcrypt", "~> 3.1"
+
+gem "strong_password", "0.0.10"

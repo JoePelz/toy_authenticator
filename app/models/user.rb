@@ -13,6 +13,15 @@ class User
 
   validates :username, :password_confirmation, presence: true
   validate :unique_username
+  validates(
+      :password,
+      length: { minimum: 5 },
+      # https://github.com/bdmac/strong_password/blob/v0.0.10/README.md
+      password_strength: {
+          use_dictionary: true,
+          min_entropy: 18
+      }
+  )
 
   def attributes=(hash)
     hash.each do |key, value|
