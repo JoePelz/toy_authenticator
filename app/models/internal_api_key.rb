@@ -16,9 +16,12 @@ class InternalAPIKey
   attr_accessor :id, :value, :expires_at
 
   def self.find_by(**kwargs)
-    new(self::KEYS.detect do |key|
+    attrs = self::KEYS.detect do |key|
       key.slice(*kwargs.keys) == kwargs
-    end)
+    end
+    return nil unless attrs
+
+    new(attrs)
   end
 
   def active?

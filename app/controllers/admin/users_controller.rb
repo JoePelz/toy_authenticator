@@ -35,7 +35,7 @@ module Admin
     end
 
     def create_params
-      @create_params ||= params.require(:user).permit(*CREATE_PARAMS)
+      @create_params ||= params.permit(*CREATE_PARAMS)
     end
   end
 end

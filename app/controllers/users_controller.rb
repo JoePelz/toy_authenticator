@@ -13,6 +13,6 @@ class UsersController < ApplicationController
   private
 
   def authenticate_params
-    @authenticate_params ||= params.require(:user).permit(:username, :password)
+    @authenticate_params ||= params.permit(:username, :password)
   end
 end

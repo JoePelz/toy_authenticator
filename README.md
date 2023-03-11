@@ -63,5 +63,7 @@ NOTES:
   * If there's a business need for password complexity to include "special characters", we can add that with a set of regex validations.
 * The models that use Redis as storage should be enhanced to inherit from a base class that provides storage access. 
 * I added Oj gem for serialization for greater performance
+* TODO: need to isolate test traffic in redis. Currently it's hitting the same redis as development.
+  * Relatedly, I have a bunch of "after this test, clean up your data manually" hooks, which is a terrible idea.
 
 .

@@ -39,10 +39,6 @@ class User
     }
   end
 
-  def serialize
-    serializable_hash(only: :username)
-  end
-
   def self.find_by(username:)
     attrs = RedisInstance.instance.get(username)
     return nil if attrs.blank?

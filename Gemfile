@@ -26,7 +26,6 @@ gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug'
-  gem 'faker'
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 6.0'
