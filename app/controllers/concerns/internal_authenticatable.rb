@@ -7,11 +7,11 @@ module InternalAuthenticatable
 
   def require_internal_api_key!
     api_key_header = request.headers[API_KEY_HEADER]
-    raise Errors::Unauthorized.new(detail: "API key header is missing") unless api_key_header.present?
+    raise Errors::Unauthorized.new(detail: 'API key header is missing') if api_key_header.blank?
 
     api_key = InternalAPIKey.find_by(value: api_key_header)
-    unless api_key&.active?
-      raise Errors::Unauthorized.new(detail: "API key is invalid")
-    end
+    return if api_key&.active?
+
+    raise Errors::Unauthorized.new(detail: 'API key is invalid')
   end
 end

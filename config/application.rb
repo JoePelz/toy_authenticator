@@ -1,8 +1,10 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails"
+require_relative 'boot'
+
+require 'rails'
 # Pick the frameworks you want:
-require "active_model/railtie"
+require 'active_model/railtie'
 # require "active_job/railtie"
 
 # ActiveRecord is the database connection.
@@ -11,7 +13,7 @@ require "active_model/railtie"
 
 # For uploading files
 # require "active_storage/engine"
-require "action_controller/railtie"
+require 'action_controller/railtie'
 
 # For sending and receiving emails
 # require "action_mailer/railtie"
@@ -19,7 +21,7 @@ require "action_controller/railtie"
 
 # For rich text content and editing
 # require "action_text/engine"
-require "action_view/railtie"
+require 'action_view/railtie'
 
 # For supporting web sockets
 # require "action_cable/engine"
@@ -27,7 +29,7 @@ require "action_view/railtie"
 # For compiling and serving web assets
 # require "sprockets/railtie"
 
-require "rails/test_unit/railtie"
+require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

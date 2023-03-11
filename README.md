@@ -61,6 +61,7 @@ NOTES:
 * I looked around for gems for checking password complexity. We could do that with regex checks, and I still might, but I also decided to install strong_password to do some fancier checks.
   * v0.0.7 of the strong_password gem was hijacked by a malicious user, but control has been restored to the original author. See https://news.ycombinator.com/item?id=20377136
   * If there's a business need for password complexity to include "special characters", we can add that with a set of regex validations.
- 
+* The models that use Redis as storage should be enhanced to inherit from a base class that provides storage access. 
+* I added Oj gem for serialization for greater performance
 
 .

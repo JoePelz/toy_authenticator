@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User
   # Support for validations
   include ActiveModel::Model
@@ -9,18 +11,19 @@ class User
   include ActiveModel::Serializers::JSON
 
   attr_accessor :username, :password_digest
+
   has_secure_password :password
 
   validates :username, :password_confirmation, presence: true
   validate :unique_username
   validates(
-      :password,
-      length: { minimum: 5 },
-      # https://github.com/bdmac/strong_password/blob/v0.0.10/README.md
-      password_strength: {
-          use_dictionary: true,
-          min_entropy: 18
-      }
+    :password,
+    length: { minimum: 5 },
+    # https://github.com/bdmac/strong_password/blob/v0.0.10/README.md
+    password_strength: {
+      use_dictionary: true,
+      min_entropy: 18
+    }
   )
 
   def attributes=(hash)
@@ -31,8 +34,8 @@ class User
 
   def attributes
     {
-        'username' => nil,
-        'password_digest' => nil,
+      'username' => nil,
+      'password_digest' => nil
     }
   end
 
@@ -56,8 +59,8 @@ class User
   private
 
   def unique_username
-    unless RedisInstance.instance.get(username).nil?
-      errors.add(:username, "must be unique")
-    end
+    return if RedisInstance.instance.get(username).nil?
+
+    errors.add(:username, 'must be unique')
   end
 end

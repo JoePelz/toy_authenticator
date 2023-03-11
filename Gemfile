@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -23,26 +25,29 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'byebug'
+  gem 'faker'
   gem 'pry'
   gem 'pry-rails'
-  gem 'rspec'
-  gem 'faker'
+  gem 'rspec-rails', '~> 6.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', '~> 2.18', require: false
+  gem 'rubocop-rspec', '~> 2.19', require: false
 end
 
 group :development do
-  gem 'rubocop', require: false
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "oj", "~> 3.14"
+gem 'oj', '~> 3.14'
 
-gem "redis", "~> 5.0"
+gem 'redis', '~> 5.0'
 
-gem "bcrypt", "~> 3.1"
+gem 'bcrypt', '~> 3.1'
 
-gem "strong_password", "0.0.10"
+gem 'strong_password', '0.0.10'

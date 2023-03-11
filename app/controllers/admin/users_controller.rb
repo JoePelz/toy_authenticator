@@ -17,15 +17,15 @@ module Admin
 
       raise Errors::NotFound.new(detail: "No user matches username #{username.inspect}") unless user
 
-      render status: 200, json: user, except: :password_digest
+      render status: :ok, json: user, except: :password_digest
     end
 
     def create
       user = User.new(create_params)
 
-      raise Errors::UnprocessableContent.new(detail: user.errors.full_messages.join(". ")) unless user.save
+      raise Errors::UnprocessableContent.new(detail: user.errors.full_messages.join('. ')) unless user.save
 
-      render status: 201, json: user, except: :password_digest
+      render status: :created, json: user, except: :password_digest
     end
 
     private
