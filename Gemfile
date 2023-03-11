@@ -42,3 +42,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "oj", "~> 3.14"
 
 gem "redis", "~> 5.0"
+
+gem "bcrypt", "~> 3.1"

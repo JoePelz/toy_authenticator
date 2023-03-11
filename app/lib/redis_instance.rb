@@ -10,6 +10,7 @@ class RedisInstance
       # password: P4ssw0rd!
       db: REDIS_DATABASE,
   }.freeze
+  SUCCESS = 'OK'
 
   def self.instance
     Redis.new(OPTIONS)

@@ -45,18 +45,18 @@
     ```
 
 NOTES:
-* Decided that only known internal users can 
-* Added constraint to routes so that 
-* We should be using the `devise` for authentication. DIY security is a bad idea.
-* Or we should be using OAuth via `doorkeeper` gem
+* We need to secure redis with credentials
+* Do we care about accept and content-type negotiation?
+* I Decided that only known internal users can do admin on users (find, create)
+  * I was going to add a route constraint on the admin routes, but that gives a 404 instead of a 401. 
+* We should be using the `devise` for authentication. DIY security is not a great idea.
+  * if not devise, at least lets hash passwords with bcrypt
+  * update: implemented this with ActiveModel::SecurePassword
+* Or we should be using OAuth via `doorkeeper` gem.
+  * What is the end goal of this authentication? That will determine if we need to be an oauth or Open ID Connect server.
 * `pundit` is a good gem for setting policies about who can do which action.
-*  
-
-TODO:
-
-* secure redis with credentials
-* accept and content-type negotiation?
-* Adopt a standard like jsonapi?  This might be tricky with Redis as a backend.
-
+* We should consider adopting a standard like JSONAPI and the fast_jsonapi gem. This might be tricky with Redis as a backend.
+* We should install `Rack::Attack` to throttle brute-force authentication attempts
+* I chose to require password_confirmation on creating a user because it was easy and fun
 
 .
